@@ -20,7 +20,7 @@ namespace iot_msgs
 
   namespace ValueHelper
   {
-    template<class T> std::vector<T> & getSeq (iot_msgs::msg::NVP & nvp) { assert (0); }
+    template<class T> std::vector<T> & getSeq (iot_msgs::msg::NVP & nvp);
 
     template<> std::vector<uint8_t> & getSeq (iot_msgs::msg::NVP & nvp) { return nvp.uint8_seq; }
     template<> std::vector<uint16_t> & getSeq (iot_msgs::msg::NVP & nvp) { return nvp.uint16_seq; }
@@ -35,7 +35,7 @@ namespace iot_msgs
     template<> std::vector<bool> & getSeq (iot_msgs::msg::NVP & nvp) { return nvp.bool_seq; }
     template<> std::vector<std::string> & getSeq (iot_msgs::msg::NVP & nvp) { return nvp.string_seq; }
 
-    template<class T> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<T> & seq) { assert (0); }
+    template<class T> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<T> & seq);
 
     template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint8_t> & seq) { nvp.set__uint8_seq (seq); }
     template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint16_t> & seq) { nvp.set__uint16_seq (seq); }
