@@ -3,21 +3,6 @@
 
 namespace iot_msgs
 {
-  template <typename T> struct type2int {};
-
-  template<> struct type2int<uint8_t> { enum { result = msg::NVP::TYPE_UINT8 }; };
-  template<> struct type2int<uint16_t> { enum { result = msg::NVP::TYPE_UINT16 }; };
-  template<> struct type2int<uint32_t> { enum { result = msg::NVP::TYPE_UINT32 }; };
-  template<> struct type2int<uint64_t> { enum { result = msg::NVP::TYPE_UINT64 }; };
-  template<> struct type2int<int8_t> { enum { result = msg::NVP::TYPE_INT8 }; };
-  template<> struct type2int<int16_t> { enum { result = msg::NVP::TYPE_INT16 }; };
-  template<> struct type2int<int32_t> { enum { result = msg::NVP::TYPE_INT32 }; };
-  template<> struct type2int<int64_t> { enum { result = msg::NVP::TYPE_INT64 }; };
-  template<> struct type2int<float> { enum { result = msg::NVP::TYPE_FLOAT }; };
-  template<> struct type2int<double> { enum { result = msg::NVP::TYPE_DOUBLE }; };
-  template<> struct type2int<bool> { enum { result = msg::NVP::TYPE_BOOL }; };
-  template<> struct type2int<std::string> { enum { result = msg::NVP::TYPE_STRING }; };
-
   namespace ValueHelper
   {
     template<class T> std::vector<T> & getSeq (iot_msgs::msg::NVP & nvp);
@@ -37,18 +22,30 @@ namespace iot_msgs
 
     template<class T> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<T> & seq);
 
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint8_t> & seq) { nvp.set__uint8_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint16_t> & seq) { nvp.set__uint16_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint32_t> & seq) { nvp.set__uint32_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint64_t> & seq) { nvp.set__uint64_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int8_t> & seq) { nvp.set__int8_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int16_t> & seq) { nvp.set__int16_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int32_t> & seq) { nvp.set__int32_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int64_t> & seq) { nvp.set__int64_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<float> & seq) { nvp.set__float32_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<double> & seq) { nvp.set__float64_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<bool> & seq) { nvp.set__bool_seq (seq); }
-    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<std::string> & seq) { nvp.set__string_seq (seq); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint8_t> & seq)
+      { nvp.set__uint8_seq (seq); nvp.set__value_type (msg::NVP::TYPE_UINT8); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint16_t> & seq)
+      { nvp.set__uint16_seq (seq); nvp.set__value_type (msg::NVP::TYPE_UINT16); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint32_t> & seq)
+      { nvp.set__uint32_seq (seq); nvp.set__value_type (msg::NVP::TYPE_UINT32); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<uint64_t> & seq)
+      { nvp.set__uint64_seq (seq); nvp.set__value_type (msg::NVP::TYPE_UINT64); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int8_t> & seq)
+      { nvp.set__int8_seq (seq); nvp.set__value_type (msg::NVP::TYPE_INT8); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int16_t> & seq)
+      { nvp.set__int16_seq (seq); nvp.set__value_type (msg::NVP::TYPE_INT16); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int32_t> & seq)
+      { nvp.set__int32_seq (seq); nvp.set__value_type (msg::NVP::TYPE_INT32); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<int64_t> & seq)
+      { nvp.set__int64_seq (seq); nvp.set__value_type (msg::NVP::TYPE_INT64); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<float> & seq)
+      { nvp.set__float32_seq (seq); nvp.set__value_type (msg::NVP::TYPE_FLOAT); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<double> & seq)
+      { nvp.set__float64_seq (seq); nvp.set__value_type (msg::NVP::TYPE_DOUBLE); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<bool> & seq)
+      { nvp.set__bool_seq (seq); nvp.set__value_type (msg::NVP::TYPE_BOOL); }
+    template<> void setSeq (iot_msgs::msg::NVP & nvp, std::vector<std::string> & seq)
+      { nvp.set__string_seq (seq); nvp.set__value_type (msg::NVP::TYPE_STRING); }
 
     template<class T> void add (std::vector<iot_msgs::msg::NVP> & vals, const char * name, const T & val)
     {
@@ -58,7 +55,6 @@ namespace iot_msgs
       nvp.set__name (name);
       seq.insert (seq.end (), val);
       setSeq<T> (nvp, seq);
-      nvp.set__value_type (type2int<T>::result);
       vals.push_back (nvp);
     }
 
